@@ -58,3 +58,8 @@ body {
     border-style: none;
     border-radius: 6px;
 }
+
+.captcha {
+    top: 290px;
+    position: absolute;
+}

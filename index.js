@@ -14,18 +14,29 @@ function generateCode() {
 
     let captchaLength = 6
 
-    let captcha = ''
-
-    for (let i = 0; i<captchaLength; i++) {
-        let randomIndex = Math.floor(Math.random*combination.length)
-        captcha = combination.charAt(randomIndex)
-        captcha.textContent = randomIndex
+    function captchaGenerator() {
+        for (let i = 0; i < captchaLength; i++) {
+            let randomIndex = Math.floor(Math.random() * combination.length)
+            captcha.textContent += combination.charAt(randomIndex)
+        }
     }
 
-    if(combination.length>6) {
+    captchaGenerator()
+
+
+    input.addEventListener('input', function() {
+        if( captcha.textContent == input.value) {
+            input.style.outlineColor = 'green'
+            input.style.color = 'green'
+        } else{
+            input.style.outlineColor = 'red'
+            input.style.color = 'red'
+        }
+    }) 
+
+    if (combination.length > 6) {
         input.style.color = 'red'
     }
-
-}
+    }
 
 generateCode()
