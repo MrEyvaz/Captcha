@@ -24,19 +24,20 @@ function generateCode() {
     captchaGenerator()
 
 
-    input.addEventListener('input', function() {
-        if( captcha.textContent == input.value) {
+    input.addEventListener('input', function () {
+        if (captcha.textContent == input.value) {
             input.style.outlineColor = 'green'
             input.style.color = 'green'
-        } else{
+        } else {
             input.style.outlineColor = 'red'
             input.style.color = 'red'
         }
-    }) 
 
-    if (combination.length > 6) {
-        input.style.color = 'red'
-    }
-    }
+        if (input.value.length > 6) {
+            input.value = input.value.slice(0,6)
+        }
+    })
+
+}
 
 generateCode()
